@@ -1,19 +1,15 @@
-import User from './models/User';
+import User from '../models/User';
 
 class UserController {
-    async index(req, res) {
-        const novoUser = await User.create({
+    async store(req, res) {
+        const novoUser = await User.store({
         nome: 'Nathan',
-        sobrenome: 'Souza',
         email: 'than@gmail.com',
-        idade: 15,
-        peso: 90,
-        altura: 1.80
+        password: '123456',
+      
         });
-        res.json(
-            novoUser
-        );
+        res.json(novoUser);
     }
 
 }
-    export default new UserControllerController();
+    export default new UserController();
