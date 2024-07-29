@@ -42,10 +42,13 @@ static init(sequelize) {
 }, {
         sequelize,
     });
-    this.addHook('beforeSave', async (user) => { 
-        user.password_hash = await bcryptjs.hash(user.password_hash, 8);
-    });
+
+    this.addHook( 'beforeSave', async user => {
+            user.password_hash = await bcryptjs.hash(user.password, 8);
+        });
+
     return this;
-}
+    }
 
 }
+
